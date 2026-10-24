@@ -24,19 +24,31 @@ Every spot gets a label:
 
 Each listing also says what the label is based on and when it was last verified. If I can't verify something, the listing says that instead of guessing. I'd rather have fewer spots that are right than a big list that's half wrong.
 
+The app itself is a frontend + backend: the spots live in a database on the backend, and the frontend asks the backend for them through an API. Filtering (by city, cuisine, label) happens on the backend too.
+
 ## status
 
-Right now it's just the scaffold. The plan, in order: basic layout, a Leaflet map centred on Brampton, a starter list of spots added by hand, the labels and filters, then put it live. Full checklist is in ROADMAP.md.
+Right now it's just the scaffold. The plan, in order: basic layout, a Leaflet map centred on Brampton, the backend with the spots database, the frontend showing spots from the API, then labels and filters, then put it live. Full checklist is in ROADMAP.md.
 
 ## tech
 
-React + Vite, Leaflet for the map (Esri tiles — same setup I used on davehomes.ca). Maybe the Google Places API later to find new spots, but every listing still gets checked by hand.
+React + Vite for the frontend, Leaflet for the map (Esri tiles — same setup I used on davehomes.ca). Backend is Node + Express with SQLite holding the spots. Same stack as my seo dashboard, on purpose — I'd rather know one stack properly. Maybe the Google Places API later to find new spots, but every listing still gets checked by hand.
 
 ## run it
+
+frontend:
 
 ```
 npm install
 npm run dev
+```
+
+backend (once it exists):
+
+```
+cd server
+npm install
+npm start
 ```
 
 ---
