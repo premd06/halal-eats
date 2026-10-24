@@ -1,45 +1,44 @@
 # Halal Eats
 
-Find halal restaurants, cafés, and bakeries in the GTA — with the one thing Google Maps won't tell you: **how halal each place actually is.**
+A small app I'm building to find halal restaurants in the GTA — and actually tell you how halal a place is, not just that the word "halal" showed up in a review somewhere.
 
-**Status:** in active development (started Oct 2026). Built in public, one small commit at a time — see [ROADMAP.md](ROADMAP.md).
+Still early. I'm building it in small pieces and pushing as I go.
 
-## The problem
+## why
 
-Search "halal" on Google Maps and you get whatever reviewers happened to mention in passing. A place can show up because one review says "not halal," another because the owner once replied "yes halal." There's no reliable way to tell:
+If you search "halal" on Google Maps you get any place where a reviewer mentioned the word once. Sometimes the review literally says "not halal" and the place still shows up. What I actually want to know before picking a spot:
 
-- Is the **whole menu** halal, or just a few options?
-- Is it **certified** (e.g. HMA — Halal Monitoring Authority), or self-declared by the restaurant?
-- Is alcohol served on the premises?
+- is the whole menu halal, or just a couple of dishes?
+- is it certified by somebody (like HMA), or does the restaurant just say it is?
+- when was that last checked?
 
-For people who eat halal in the GTA — one of the largest Muslim populations in North America — this is a daily, practical problem with no good tool.
+No app really shows that, so I'm making one.
 
-## What this does
+## how it works
 
-- **Map + list** of halal spots across the GTA, starting with Brampton, Caledon, and Mississauga
-- Every listing carries a **trust label**:
-  - **Certified** — verified against a certifier's listing (e.g. HMA)
-  - **Fully halal menu** — the restaurant states its full menu is halal
-  - **Halal options** — some dishes are halal; the rest of the menu isn't
-  - Each label shows **what it's based on** and a **last-verified date** — no claim without a source
-- Filters: cuisine, trust level, city, open now
-- Details per spot: address, hours, rating, and a directions link
+Every spot gets a label:
 
-## Data honesty
+- **certified** — checked against a certifier's list
+- **full menu halal** — the restaurant says its whole menu is halal
+- **halal options** — only some dishes are halal
 
-Halal status is a claim people make religious decisions on, so this project treats it like data, not decoration: every listing stores its basis (`certified`, `restaurant-stated`, `community-reported`) and when it was last checked. Listings never claim a certification that hasn't been verified against the certifier.
+Each listing also says what the label is based on and when it was last verified. If I can't verify something, the listing says that instead of guessing. I'd rather have fewer spots that are right than a big list that's half wrong.
 
-## Tech
+## status
 
-React · Vite · Leaflet (Esri tiles) · Google Places API for discovery (verification data curated in-repo)
+Right now it's just the scaffold. The plan, in order: basic layout, a Leaflet map centred on Brampton, a starter list of spots added by hand, the labels and filters, then put it live. Full checklist is in ROADMAP.md.
 
-## Run it locally
+## tech
 
-```bash
+React + Vite, Leaflet for the map (Esri tiles — same setup I used on davehomes.ca). Maybe the Google Places API later to find new spots, but every listing still gets checked by hand.
+
+## run it
+
+```
 npm install
 npm run dev
 ```
 
 ---
 
-Built by [Prem Dave](https://github.com/premd06) — also: [davehomes.ca](https://davehomes.ca) · [SEO & Performance Analytics Dashboard](https://github.com/premd06/seo-dashboard)
+I'm Prem — realtor in Brampton/Caledon and a CS student. Other stuff: [davehomes.ca](https://davehomes.ca) · [seo-dashboard](https://github.com/premd06/seo-dashboard)

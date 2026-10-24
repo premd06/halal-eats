@@ -1,32 +1,31 @@
-# Roadmap — Halal Eats
+# stuff I'm building, in order
 
-Built in small, daily commits. Each item is sized to land in one focused session, in order. Check items off as they ship.
+I try to do one of these per session so the commits stay small and I actually understand everything in here.
 
-## Phase 1 — App shell + map
-- [ ] Replace the Vite template shell: header "Halal Eats", clean layout (map main view, list sidebar), mobile-friendly
-- [ ] Leaflet map component centred on Brampton with Esri street tiles (same approach as davehomes.ca)
+## layout + map
+- [ ] get rid of the default Vite page, put in a simple header + layout
+- [ ] Leaflet map working, centred on Brampton (Esri tiles)
 
-## Phase 2 — Seed data + list
-- [ ] `src/data/spots.js`: ~20 well-known GTA halal spots (Brampton, Mississauga, Caledon first). Every entry: name, address, lat/lng (geocoded from the real address — verify, never guess), cuisine, trust level (`certified` / `full-menu` / `options`), basis + last-verified date. When certification can't be verified, the basis says so honestly.
-- [ ] Results list rendering from the data file, sorted by city
-- [ ] Map markers for each spot, popup with name, cuisine, trust label
+## the list of spots
+- [ ] data file with ~20 spots around Brampton, Mississauga, Caledon — name, address, coordinates taken from the actual address (no guessing pins), cuisine, label, what the label is based on, date I checked it
+- [ ] show the list on the page next to the map
+- [ ] markers on the map — click one and the name + label pops up
 
-## Phase 3 — The trust layer (the whole point)
-- [ ] Trust label component with plain-English explanations of each level
-- [ ] Filters: trust level, cuisine, city, open-now
-- [ ] Details panel: address, hours, rating where known, directions link (Google Maps)
+## labels + filters
+- [ ] label component, with a short explanation of what each label means
+- [ ] filters: label, cuisine, city
 
-## Phase 4 — Grow the data
-- [ ] Verification pass: cross-check certified listings against the HMA certified list; update basis/last-verified
-- [ ] "Suggest a spot" and "Report an error" (simple form → mailto for v1)
-- [ ] Search by city / neighbourhood
+## data cleanup
+- [ ] re-check the certified ones against the HMA list
+- [ ] "suggest a spot" / "this listing is wrong" link (just a mailto for now)
+- [ ] search by city
 
-## Phase 5 — Ship it
-- [ ] Loading/empty states and polish
-- [ ] Deploy to Netlify, add the live link + screenshots to the README
+## ship it
+- [ ] fix the rough edges — empty states, mobile layout
+- [ ] deploy to Netlify, add screenshots to the readme
 
-## Later ideas
-- Google Places API discovery layer: surface candidate spots, human-verify before listing
-- Community submissions with moderation
-- Prayer-friendly / no-alcohol-served filter
-- More cities: Toronto, Scarborough, Vaughan, Markham
+## ideas for later
+- filter for places that don't serve alcohol
+- let restaurant owners claim their listing
+- more cities: Toronto, Scarborough, Vaughan, Markham
+- Places API to find new spots (still verified by hand before they go on the list)
